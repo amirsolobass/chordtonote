@@ -35,10 +35,10 @@ def main():
         quality = quality.lower()
         quality = quality_aliases.get(quality, quality)
         if quality not in chord_master_map:
-            raise ValueError(f"{args.chord} is not a chord bruh.")
+            raise ValueError(f"Unknown chord quality: {quality}")
         intervals = chord_master_map.get(quality)
         if intervals is None:
-            raise ValueError(f"Unknown chord quality: {quality}")
+            raise ValueError(f"{args.chord} is not a chord bruh.")
         
         # calculate note values and map to names
         pitch_classes = list(calculate_notes(root, intervals))
