@@ -15,7 +15,7 @@ def main():
     parser.add_argument("chord", type=str, help="The chord name to convert (e.g., Cmaj7, D#m, F#dim).")
     parser.add_argument("-n", "--numbers", action="store_true", help="Output notes as pitch classes (0-11) instead of note names.")
     parser.add_argument("-d", "--degrees", action="store_true", help="Output chord degrees (1, b3, 5, b7, etc.) instead of note names.")
-    parser.add_argument("-v", "--version", help="Display the program's version.")
+    parser.add_argument("-v", "--version", action="version", version="CTN v1.0")
     # Parse arguments
     args = parser.parse_args()
 

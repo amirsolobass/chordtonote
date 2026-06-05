@@ -33,56 +33,68 @@ I recently got into live coding music with [strudel.cc](https://strudel.cc/), a 
 ## Usage
 
 ```bash
-python3 src/main.py <chord>
+python3 src/main.py [options] <chord>
 ```
+
+### Options
+
+| Flag | Description |
+|------|-------------|
+| `-n`, `--numbers` | Output pitch classes (0–11) instead of note names |
+| `-d`, `--degrees` | Output chord degrees (1, b3, 5, b7, etc.) instead of note names |
+| `-v`, `--version` | Display version |
 
 ### Examples
 
-- Basic chords:
+- Note names (default):
   ```bash
-  $ python3 src/main.py "C"
-  Chord: C
-  Notes: C E G
-
-  $ python3 src/main.py "Cm"
-  Chord: Cm
-  Notes: C Eb G
+  $ python3 src/main.py "Cmaj7"
+  Chord: Cmaj7
+  Notes: C E G B
   ```
 
-- Seventh chords:
+- Pitch classes:
   ```bash
-  $ python3 src/main.py "C7"
-  Chord: C7
-  Notes: C E G Bb
+  $ python3 src/main.py "Cmaj7" -n
+  Chord: Cmaj7
+  Notes: 0 4 7 11
+  ```
 
-  $ python3 src/main.py "Cm7"
+- Chord degrees:
+  ```bash
+  $ python3 src/main.py "Cmaj7" -d
+  Chord: Cmaj7
+  Notes: 1 3 5 7
+
+  $ python3 src/main.py "Cm7" -d
   Chord: Cm7
-  Notes: C Eb G Bb
-  ```
+  Notes: 1 b3 5 b7
 
-- Sharp/flat roots:
-  ```bash
-  $ python3 src/main.py "F#"
-  Chord: F#
-  Notes: F# A# C#
-
-  $ python3 src/main.py "Bb"
-  Chord: Bb
-  Notes: Bb D F
+  $ python3 src/main.py "Cdim7" -d
+  Chord: Cdim7
+  Notes: 1 b3 b5 bb7
   ```
 
 - Slash chords:
   ```bash
-  $ python3 src/main.py "Gm/E"
-  Chord: Gminor/E
-  Notes: E G Bb D
+  $ python3 src/main.py "C7/E"
+  Chord: C7/E
+  Notes: E G Bb C
+
+  $ python3 src/main.py "C7/E" -d
+  Chord: C7/E
+  Notes: 3 5 b7 1
   ```
 
-- Case-insensitive:
+- Sharp/flat roots:
   ```bash
-  $ python3 src/main.py "bdIm"
-  Chord: bdim
-  Notes: B D F
+  $ python3 src/main.py "F#maj7"
+  Chord: F#maj7
+  Notes: F# A# C# F
+
+  $ python3 src/main.py "Bbm7"
+  Chord: Bbm7
+  Notes: Bb Db F Ab
   ```
 
 ## Supported Chords
