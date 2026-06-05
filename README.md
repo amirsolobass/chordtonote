@@ -87,9 +87,11 @@ python3 src/main.py <chord>
 ## Supported Chords
 
 - **Triads**: major, minor, dim, aug, sus2, sus4, 5 (power)
-- **Seventh Chords**: maj7, m7, 7, m7b5, dim7, aug7, augmaj7, mmaj7, 7sus4, 7sus2
-- **Extended Chords**: maj9, m9, 9, m9b5, aug9, augmaj9, mmaj9
-- **Eleventh & Thirteenth**: maj11, m11, 11, m11b5, aug11, augmaj11, mmaj11, maj13, m13, 13, m13b5, aug13, augmaj13, mmaj13
+- **Seventh Chords**: maj7, m7, 7, m7b5, dim7, aug7, augmaj7, mmaj7, 7sus4, 7sus2, 6, m6, 7b5, maj7b5, add9, madd9, add2
+- **Ninth Chords**: maj9, m9, 9, m9b5, aug9, augmaj9, mmaj9, 69, m69, 7b9, 7#9, 9sus4, 7b5b9, 7#5b9
+- **Eleventh Chords**: maj11, m11, 11, m11b5, aug11, augmaj11, mmaj11, 7#11, maj7#11, 9#11, maj9#11, add11, madd11
+- **Thirteenth Chords**: maj13, m13, 13, m13b5, aug13, augmaj13, mmaj13, 13b9, 13#11, 13sus4
+
 
 ## Development
 
