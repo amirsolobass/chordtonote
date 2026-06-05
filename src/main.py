@@ -13,6 +13,8 @@ def main():
         )
     # Add arguments
     parser.add_argument("chord", type=str, help="The chord name to convert (e.g., Cmaj7, D#m, F#dim).")
+    parser.add_argument("-n", "--numbers", action="store_true", help="Output notes as pitch classes (0-11) instead of note names.")
+    parser.add_argument("-d", "--degrees", action="store_true", help="Output chord degrees (1, b3, 5, b7, etc.) instead of note names.")
     parser.add_argument("-v", "--version", help="Display the program's version.")
     # Parse arguments
     args = parser.parse_args()
@@ -43,6 +45,7 @@ def main():
         # calculate note values and map to names
         pitch_classes = list(calculate_notes(root, intervals))
         note_names = list(get_note_names(pitch_classes, root, quality))
+        final_pitches = pitch_classes
 
         if slash_notes:
             # add bass note and reorder
@@ -52,13 +55,26 @@ def main():
             # sort pitches starting from bass
             sorted_pitches = sorted(pitch_classes, key=lambda x: (x - bass_pitch) % 12)
             note_names = list(get_note_names(sorted_pitches, root, quality))
+            final_pitches = sorted_pitches
 
         # Output results
         chord_name = f"{root}{quality}"
         if slash_notes:
             chord_name += f"/{slash_notes}"
         print(f"Chord: {chord_name}")
-        print(f"Notes: {' '.join(note_names)}")
+        if args.degrees:
+            degree_intervals = list(intervals)
+            if slash_notes:
+                root_pc = list(calculate_notes(root, [0]))[0]
+                bass_iv = (bass_pitch - root_pc) % 12
+                if not any(i % 12 == bass_iv for i in degree_intervals):
+                    degree_intervals.append(bass_iv)
+                degree_intervals.sort(key=lambda x: (x % 12 - bass_iv) % 12)
+            print(f"Notes: {' '.join(interval_to_degree(i, quality, degree_intervals) for i in degree_intervals)}")
+        elif args.numbers:
+            print(f"Notes: {' '.join(str(p) for p in final_pitches)}")
+        else:
+            print(f"Notes: {' '.join(note_names)}")
 
     except ValueError as e:
         print(f"Error: {e}")

@@ -8,6 +8,7 @@ I recently got into live coding music with [strudel.cc](https://strudel.cc/), a 
 
 ## Features
 
+
 - **Wide Chord Support**: Handles major, minor, seventh, ninth, eleventh, thirteenth chords, augmented, diminished, suspended, and power chords.
 - **Accidentals**: Supports sharps (#) and flats (b) in root notes.
 - **Slash Chords**: Includes bass notes (e.g., Gm/E).

@@ -1,5 +1,5 @@
 
-from interval_maps import NOTE_TO_INT, INT_TO_NOTES
+from interval_maps import NOTE_TO_INT, INT_TO_NOTES, INTERVAL_TO_DEGREE
 
 def calculate_notes(base_note, intervals):
     """Get the note names for a given base note and intervals."""
@@ -12,6 +12,15 @@ def calculate_notes(base_note, intervals):
         if interval < 0 or interval > 21:
             raise ValueError(f"Invalid interval: {interval}. Must be between 0 and 21.")
         yield (base_value + interval) % 12 # return pitch classes as integers for now, will map to names later
+
+def interval_to_degree(interval: int, quality: str, chord_intervals: list = None) -> str:
+    if interval == 6:
+        return "b5" if ("dim" in quality or "b5" in quality) else "#4"
+    if interval == 9:
+        if chord_intervals and 3 in chord_intervals and 6 in chord_intervals:
+            return "bb7"
+        return "6"
+    return INTERVAL_TO_DEGREE.get(interval, str(interval))
 
 def get_note_names(pitch_classes, root, quality=""):
     """Map the calculated note values back to their names ENHARMONICALLY CORRECT."""
