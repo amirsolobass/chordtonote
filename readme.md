@@ -10,7 +10,7 @@ A simple command-line tool to convert chord names to their constituent notes. Pe
 - **Case-Insensitive**: Accepts chords in any case (e.g., "Cm7", "cm7").
 - **Enharmonic Equivalents**: Automatically selects appropriate note names based on chord type.
 
-## Installation
+## Quick Start
 
 1. Clone the repository:
    ```bash
@@ -96,7 +96,7 @@ python3 src/test_chordtonote.py
 
 ## Contributing
 
-Feel free to open issues or submit pull requests for new features or bug fixes.
+Feel free to contribute as you wish, please fork the repository and open a pull request to the `main` branch
 
 ## License
 
