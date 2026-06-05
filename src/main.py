@@ -9,7 +9,7 @@ def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(prog="chordtonote",
         description="Convert chord names to their note values.",
-        usage="%(prog)s [options] <chord>",
+        usage="%(prog)s <chord> [options]",
         )
     # Add arguments
     parser.add_argument("chord", type=str, help="The chord name to convert (e.g., Cmaj7, D#m, F#dim).")

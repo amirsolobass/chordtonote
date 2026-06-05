@@ -33,7 +33,7 @@ I recently got into live coding music with [strudel.cc](https://strudel.cc/), a 
 ## Usage
 
 ```bash
-python3 src/main.py [options] <chord>
+python3 src/main.py <chord> [options]
 ```
 
 ### Options
