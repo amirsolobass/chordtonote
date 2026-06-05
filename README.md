@@ -1,6 +1,10 @@
-# ChordToNote v1.0
+# CTN v1.0
 
 A simple command-line tool to convert chord names to their constituent notes. Perfect for musicians, students, and developers learning music theory.
+
+## Motivation
+
+I recently got into live coding music with [strudel.cc](https://strudel.cc/), a pattern-based sequencer that works with pitch classes and note numbers rather than traditional note names (well, at least it's easier that way). When I wanted to voice specific chords, I kept having to look up which numbers corresponded to which notes — and I couldn't find a simple tool that did the conversion cleanly from a chord name. So I built one.
 
 ## Features
 
